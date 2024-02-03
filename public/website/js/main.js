@@ -1293,15 +1293,15 @@
                 $loginTab.removeClass("show");
               }
             }
-            if ($filterBook.css("display") === "block") {
-                // Check if the click is outside both the filter-booking element and the filterButton
-                if (
-                    !$filterBook.is(event.target) && $filterBook.has(event.target).length === 0 &&
-                    !$filterButton.is(event.target) && $filterButton.has(event.target).length === 0
-                ) {
-                    $filterBook.hide();
-                }
-            }
+            // if ($filterBook.css("display") === "block") {
+            //     // Check if the click is outside both the filter-booking element and the filterButton
+            //     if (
+            //         !$filterBook.is(event.target) && $filterBook.has(event.target).length === 0 &&
+            //         !$filterButton.is(event.target) && $filterButton.has(event.target).length === 0
+            //     ) {
+            //         $filterBook.hide();
+            //     }
+            // }
           });
 
 
@@ -1352,6 +1352,12 @@
                 initializeDateRangePicker1("daterange5");
                 initializeDateRangePicker1("daterange6");
                 initializeDateRangePicker1("daterange7");
+                initializeDateRangePicker1("daterange10");
+                initializeDateRangePicker1("daterange11");
+                initializeDateRangePicker1("daterange12");
+                initializeDateRangePicker1("daterange13");
+                initializeDateRangePicker1("daterange14");
+                initializeDateRangePicker1("daterange15");
           });
 
 

@@ -72,11 +72,11 @@
                                     <div class="date-wrapper clearfix">
                                         <div class="check-in-wrapper">
                                             <label>Booking From Date</label>
-                                            <div id="booking-from" class="inputg check-in-render">DD/MM/YYYY</div>
+                                            {{-- <div id="booking-from" class="inputg check-in-render">DD/MM/YYYY</div> --}}
+                                            <input type="text" id="daterange10" class="form-control" name="daterange10" value="" />
                                         </div>
                                     </div>
-                                    <input type="hidden" class="check-in-input" value="01/07/2024" name="start">
-                                    <input type="text" class="check-in-out" value="" name="date">
+                                    <input type="hidden" name="hiddendaterange10" id="hiddendaterange10">
                                 </div>
                                 <div class="form-group form-date-field form-date-search clearfix  has-icon "
                                     data-format="DD/MM/YYYY">
@@ -84,11 +84,11 @@
                                     <div class="date-wrapper clearfix">
                                         <div class="check-in-wrapper">
                                             <label>Booking To Date</label>
-                                            <div  id="booking-to" class="inputg check-out-render">DD/MM/YYYY</div>
+                                            {{-- <div id="booking-to" class="inputg check-out-render">DD/MM/YYYY</div> --}}
                                         </div>
                                     </div>
-                                    <input type="hidden" class="check-out-input" value="02/07/2024" name="end">
-                                    <input type="text" class="check-in-out" value="" name="date">
+                                    <input type="hidden" name="hiddendaterange11" id="hiddendaterange11">
+                                    <input type="text" id="daterange11" class="form-control" name="daterange11" value="" />
                                 </div>
                             </div>
                             <div class="col-md-3 border-right">
@@ -98,11 +98,11 @@
                                     <div class="date-wrapper clearfix">
                                         <div class="check-in-wrapper">
                                             <label>Check In</label>
-                                            <div  id="check-in-date" class="inputg check-out-render">DD/MM/YYYY</div>
+                                            {{-- <div id="check-in-date" class="inputg check-out-render">DD/MM/YYYY</div> --}}
                                         </div>
                                     </div>
-                                    <input type="hidden" class="check-out-input" value="02/07/2024" name="end">
-                                    <input type="text" class="check-in-out" value="" name="date">
+                                    <input type="hidden" name="hiddendaterange12" id="hiddendaterange12">
+                                        <input type="text" id="daterange12" class="form-control" name="daterange12" value="" />
                                 </div>
                                 <div class="form-group form-date-field form-date-search clearfix  has-icon "
                                     data-format="DD/MM/YYYY">
@@ -110,11 +110,11 @@
                                     <div class="date-wrapper clearfix">
                                         <div class="check-in-wrapper">
                                             <label>Check Out</label>
-                                            <div id="check-out-date" class="inputg check-out-render">DD/MM/YYYY</div>
+                                            {{-- <div id="check-out-date" class="inputg check-out-render">DD/MM/YYYY</div> --}}
                                         </div>
                                     </div>
-                                    <input type="hidden" class="check-out-input" value="02/07/2024" name="end">
-                                    <input type="text" class="check-in-out" value="" name="date">
+                                    <input type="hidden" name="hiddendaterange13" id="hiddendaterange13">
+                                        <input type="text" id="daterange13" class="form-control" name="daterange13" value="" />
                                 </div>
                             </div>
 
@@ -125,11 +125,11 @@
                                     <div class="date-wrapper clearfix">
                                         <div class="check-in-wrapper">
                                             <label>Cancellation Date From</label>
-                                            <div id="cancellation-date-from" class="inputg check-in-render">DD/MM/YYYY</div>
+                                            {{-- <div id="cancellation-date-from" class="inputg check-in-render">DD/MM/YYYY</div> --}}
                                         </div>
                                     </div>
-                                    <input type="hidden" class="check-in-input" value="01/07/2024" name="start">
-                                    <input type="text" class="check-in-out" value="" name="date">
+                                    <input type="hidden" name="hiddendaterange14" id="hiddendaterange14">
+                                        <input type="text" id="daterange14" class="form-control" name="daterange14" value="" />
                                 </div>
                                 <div class="form-group form-date-field form-date-search clearfix  has-icon "
                                     data-format="DD/MM/YYYY">
@@ -137,11 +137,11 @@
                                     <div class="date-wrapper clearfix">
                                         <div class="check-in-wrapper">
                                             <label>Cancellation Date To</label>
-                                            <div id="cancellation-date-to" class="inputg check-out-render">DD/MM/YYYY</div>
+                                            {{-- <div id="cancellation-date-to" class="inputg check-out-render">DD/MM/YYYY</div> --}}
                                         </div>
                                     </div>
-                                    <input type="hidden" class="check-out-input" value="02/07/2024" name="end">
-                                    <input type="text" class="check-in-out" value="" name="date">
+                                    <input type="hidden" name="hiddendaterange15" id="hiddendaterange15">
+                                    <input type="text" id="daterange15" class="form-control" name="daterange15" value="" />
                                 </div>
                             </div>
 

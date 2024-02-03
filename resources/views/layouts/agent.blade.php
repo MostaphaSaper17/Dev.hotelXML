@@ -21,13 +21,12 @@
     <link href="{{ asset('website/css/responsive.css') }}" rel="stylesheet">
     <link href="{{ asset('website/css/helpers.css') }}" rel="stylesheet">
     <link href="{{ asset('website/css/search-result.css') }}" rel="stylesheet">
-    <link href="{{ asset('website/css/daterangepicker.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('website/css/daterangepicker.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('website/css/fotorama.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script> -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
         <!-- Main styles -->
         <link href="{{ asset('website/profile-admin/css/admin.css') }}" rel="stylesheet">
         <!-- Icon fonts-->

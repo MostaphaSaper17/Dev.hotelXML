@@ -9524,7 +9524,6 @@
     padding: 30px;
     width: 500px;
   }
-  .show
   .tm-recommended-price-box {
     background-color: var(--main-color);
     background-image: url(../images/button-curve.png);
@@ -12037,8 +12036,6 @@
     color: #fff !important;
   }
 
-  .hero-section .guests>div {}
-
   #top-header-menu-area .menu-area {
     float: unset;
   }
@@ -12154,6 +12151,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    /* width: 80px; */
   }
 
   #rooms-container .children-ages span {
@@ -12164,6 +12162,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+      width: 70px;
   }
 
   #rooms-container #add-room {
