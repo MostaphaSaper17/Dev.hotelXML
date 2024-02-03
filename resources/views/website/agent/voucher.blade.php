@@ -1,4 +1,4 @@
-<html dir="rtl">
+<html dir="ltr">
 
 <head>
 
@@ -22,8 +22,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport"
         content="width=device-width, height=device-height, initial-scale=1, maximum-scale=2, minimum-scale=1">
-    <title>:: Cheval Traveller ::</title>
-    <!-- bootstrap css -->
+        <title>Hotels XML</title>
+        <!-- bootstrap css -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- font awesome css -->
     <link href="css/all.min.css" rel="stylesheet">
@@ -42,26 +42,26 @@
     <link href="css/fotorama.css" rel="stylesheet">
 </head>
 
-<body style="background-color: #000;;font-size: 12px; font-family: 'Inter', sans-serif;">
+<body style="background-color: #ffffff;;font-size: 12px; font-family: 'Inter', sans-serif;">
     <div style="overflow: auto;">
         <div style="position: relative; width:964px;background-color:white;margin:0 auto; padding:20 100px;">
             <div
-                style="opacity: 0.3;font-size: 19px;font-weight: 700;border: 2px solid rgb(101, 77, 239);color:rgb(117, 77, 239);margin: 20px 0;position: absolute ;top:485;border-radius: 50px;right: 160;transform: rotate(-20deg);padding:10px 20px;">
+                style="opacity: 0.3;font-size: 19px;font-weight: 700;border: 2px solid rgb(101, 77, 239);color:rgb(117, 77, 239);margin: 20px 0;position: absolute ;top:370;border-radius: 50px;right: 160;transform: rotate(-20deg);padding:10px 20px;">
                 Paid reservation</div>
             <div class="secondHeader" style="font-size: 14; font-stretch: expanded;text-align: center;margin: 30 0;">
                 Reservation Voucher
             </div>
             <div style="display: flex;justify-content: space-between;margin: 40 0 10 0;">
                 <div class="secondHeader">
-                    <div style="font-weight: 700;">Company name</div>
-                    <div>City and country </div>
-                    <div>Tel of company</div>
+                    <div style="font-weight: 700;">{{ $booking->company_name }}</div>
+                    <div>{{ $booking->city }}, {{ $booking->nationality }} </div>
+                    <div>{{ $booking->hotel_phone }}</div>
                 </div>
                 <div style="width: 40%;">
-                    <div class="secondHeader" style="font-weight:700;margin-bottom: 2px;">Reservations ID / HXM0001
+                    <div class="secondHeader" style="font-weight:700;margin-bottom: 2px;">Reservations ID / {{ $booking->booking_reference_id }}
                     </div>
 
-                    <div class="secondHeader">booked on: 20 Jan 2024</div>
+                    <div class="secondHeader">{{ \Carbon\Carbon::parse($booking->created_at)->format('d/m/Y') }}</div>
                 </div>
             </div>
 
@@ -72,13 +72,13 @@
 
                         <div>
                             <div>
-                                <span class="header" style="font-size: 17px;">Hotel Name</span>
+                                <span class="header" style="font-size: 17px;">{{ $booking->hotel_name }}</span>
                             </div>
                             <div>
-                                <span class="secondHeader">Company name</span>
+                                <span class="secondHeader">{{ $booking->company_name }}</span>
                             </div>
                             <div>
-                                <span class="secondHeader">Tel hotel</span>
+                                <span class="secondHeader">{{ $booking->hotel_phone }}</span>
                             </div>
 
                         </div>
@@ -89,7 +89,7 @@
                         <div>
                             <span class="header">Check-in</span>
                             <br>
-                            <span style="font-size: 12px;"> <strong>21.01.2024</strong> ,from 14:00:00</span>
+                            <span style="font-size: 12px;"> <strong>{{ \Carbon\Carbon::parse($checkInDate)->format('d/m/Y') }}</strong> ,from 14:00:00</span>
                         </div>
 
 
@@ -98,7 +98,7 @@
                         <div>
                             <span class="header">Check-out</span>
                             <br>
-                            <span style="font-size: 12px;"><strong>28.09.2022</strong> until 11:00:00 Am</span>
+                            <span style="font-size: 12px;"><strong>{{ \Carbon\Carbon::parse($checkOutDate)->format('d/m/Y') }}</strong> until 11:00:00 Am</span>
                         </div>
 
 
@@ -107,7 +107,7 @@
                         <div>
                             <div style="font-weight: 700;">Nights</div>
 
-                            <div style="font-size: 12px; margin: 4 10;">3</div>
+                            <div style="font-size: 12px; margin: 4 10;">{{ $nights }}</div>
                         </div>
 
 
@@ -121,15 +121,15 @@
 
                 <div style="margin-top: 20px;font-size: 14px;">
                     <div style="display: flex; margin-top: 20px;">
-                        <div style="width: 50%; font-weight: 700;">1 Room, for 2 adults and 2 children</div>
+                        <div style="width: 50%; font-weight: 700;">{{ $booking->room_numbers }} Room/s, for {{ $booking->adults_number }} adult/s and {{ $booking->children_number }} child/ren</div>
 
-                        <div style="width: 50%;"><strong>Room Type:</strong> deluxe studio sea view apartment</div>
+                        <div style="width: 50%;"><strong>Rooms Types:</strong> {{ $booking->room_types }}</div>
 
                     </div>
 
-                    <div style="margin-top: 20px;"><strong>Meal Type:</strong> Bed and Breakfast</div>
+                    <div style="margin-top: 20px;"><strong>Meal Type:</strong> {{ $booking->room_meal }}</div>
 
-                    <div style="margin-top: 20px;"><strong>Guests name:</strong> Khaled Alqahatani, Abdullah Alsalelah
+                    <div style="margin-top: 20px;"><strong>Guests names:</strong> {{ $booking->guest_names }}
                     </div>
 
 
@@ -183,7 +183,7 @@
                 </div>
                 <div style="width: 50%;">
                     <div style="font-size: 14;margin: 20px 0;width: 100%;">
-                        <img style="width: 100%;" src="./map.png" alt="">
+                        <img style="width: 100%;" src="{{ asset('website/images/map.png') }}" alt="">
                     </div>
 
                 </div>

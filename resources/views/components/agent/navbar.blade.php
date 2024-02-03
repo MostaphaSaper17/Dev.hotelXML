@@ -49,7 +49,7 @@
       </div>
     </div>
   </div>
-  <div class="modal fade modal-map show-statements-modal-pop-box" id="st-modal-show-statements" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade modal-map show-statements-modal-pop-box" id="st-modal-show-statements" style="height: 100%" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -76,7 +76,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 border-right">
+                        <div class="col-md-6">
                             <div class="form-group form-extra-field dropdown clearfix field-detination">
                                 <label>Type</label>
                                 <div class="dropdown" id="TypeDiv">
@@ -84,95 +84,68 @@
                                 </div>
                             </div>
                         </div>
-
-
-                        <div class="clearfix"></div>
-                        <div class="col-md-12 mobile-hide-hr"><hr></div>
-                        <div class="clearfix"></div>
-                        <div class="col-md-6 border-right">
-                            <h5 class="sp-mar-20"></h5>
+                        <div class="col-md-12">
+                            <div class="form-group form-extra-field dropdown clearfix field-detination">
+                                <div class="dropdown">
+                                    <label>Date Type</label>
+                                    <select name="date_type"  id="date_type" class="inputg" required>
+                                        <option value="">Select Date Type</option>
+                                        <option value="specific_date">Specific Date</option>
+                                        <option value="Range">Date Range</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div hidden id="specific" class="col-md-6">
                             <div class="search-form-wrapper mobile-form-gap">
-                            <div class="search-form horizontal-search-area">
+                                <div class="search-form horizontal-search-area ">
                                     <div class="form-group form-date-field form-date-search clearfix  has-icon " data-format="DD/MM/YYYY">
-                                        <i class="input-icon field-icon"><img src="hotel-support/images/calandar-icon.png" alt=""></i>
+                                        <i class="input-icon field-icon"><img src="{{ asset('website/hotel-support/images/calandar-icon.png') }}" alt=""></i>
                                         <div class="date-wrapper clearfix">
                                             <div class="check-in-wrapper">
-
-                                                <label>Specific Date</label>
-                                                <div class="inputg check-in-render">Place Specific Date</div>
+                                                <label>Place Specific Date</label>
+                                                <input type="text" id="daterange5" class="form-control specific-date-input" name="specific" value="" />
                                             </div>
                                         </div>
-                                        <!-- <input type="hidden" class="check-in-input" value="01/07/2019" name="start">
-                                        <input type="text" class="check-in-out" value="01/07/2019 10:11 am-02/07/2019 10:11 am" name="date"> -->
-                                        <input type="hidden" name="hiddendaterange5" id="hiddendaterange5">
-                                        <input type="text" id="daterange5" class="form-control" name="daterange5" value="" />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6"><h5 class="sp-mar-20">OR</h5></div>
-                        <div class="clearfix"></div>
-                        <div class="col-md-12 mobile-hide-hr"><hr></div>
-                        <div class="clearfix"></div>
-                        <div class="col-md-6 border-right">
+                        <div hidden id="range1" class="col-md-6">
                             <div class="search-form-wrapper mobile-form-gap">
-                                <div class="search-form horizontal-search-area">
+                                <div class="search-form horizontal-search-area ">
                                     <div class="form-group form-date-field form-date-search clearfix  has-icon " data-format="DD/MM/YYYY">
-                                        <i class="input-icon field-icon"><img src="hotel-support/images/calandar-icon.png" alt=""></i>
+                                        <i class="input-icon field-icon"><img src="{{ asset('website/hotel-support/images/calandar-icon.png') }}" alt=""></i>
                                         <div class="date-wrapper clearfix">
                                             <div class="check-in-wrapper">
-
                                                 <label>Date Range From</label>
-                                                <div class="inputg check-in-render">Place Date Range From</div>
+                                                <input type="text" id="daterange5" class="form-control date-range-from-input" name="range_from" value="" />
                                             </div>
                                         </div>
-                                    <input type="hidden" name="hiddendaterange6" id="hiddendaterange6">
-                                    <input type="text" id="daterange6" class="form-control" name="daterange6" value="" />
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div hidden id="range2" class="col-md-6">
                             <div class="search-form-wrapper mobile-form-gap">
-                                <div class="search-form horizontal-search-area">
+                                <div class="search-form horizontal-search-area ">
                                     <div class="form-group form-date-field form-date-search clearfix  has-icon " data-format="DD/MM/YYYY">
-                                        <i class="input-icon field-icon"><img src="hotel-support/images/calandar-icon.png" alt=""></i>
+                                        <i class="input-icon field-icon"><img src="{{ asset('website/hotel-support/images/calandar-icon.png') }}" alt=""></i>
                                         <div class="date-wrapper clearfix">
                                             <div class="check-in-wrapper">
                                                 <label>Date Range To</label>
+                                                <input type="text" id="daterange5" class="form-control date-range-to-input" name="range_to" value="" />
                                             </div>
                                         </div>
-                                        <input type="hidden" name="hiddendaterange7" id="hiddendaterange7">
-                                    <input type="text" id="daterange7" class="form-control" name="daterange7" value="" />
                                     </div>
-                                    </div>
-                                    </div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="col-md-12 mobile-hide-hr"><hr></div>
-                        <div class="clearfix"></div>
-
-                        {{-- <div class="col-md-4 border-right">
-                            <div class="form-group form-extra-field dropdown clearfix field-detination">
-                                <div class="dropdown">
-                                    <label>Download Format</label>
-                                    <select name="" id="" class="inputg" required="">
-                                        <option value="PDF">PDF</option>
-                                        <option value="Print">Print</option>
-                                        <option value="Excel">Excel</option>
-                                    </select>
-
                                 </div>
                             </div>
-                        </div> --}}
-
-
-
-                        <div class="col-md-4 border-right">
+                        </div>
+                        <hr>
+                        <div class="col-md-6">
                             <button class="btn btn-success btn-search full-width-btn mt20" type="submit">Fetch Statement</button>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                                 <button class="btn btn-danger btn-search full-width-btn mt20" type="submit">Cancel</button>
                         </div>
                     </div>
@@ -201,6 +174,20 @@
 
         // Replace the content of TypeDiv with the dynamically generated select
         document.getElementById('TypeDiv').innerHTML = typeOptions;
+    });
+
+    document.getElementById('date_type').addEventListener('change', function() {
+        var selectedDateType = this.value; // Get the selected value
+        if (selectedDateType === 'specific_date'){
+            document.getElementById('specific').removeAttribute('hidden');
+            document.getElementById('range1').setAttribute('hidden', true);
+            document.getElementById('range2').setAttribute('hidden', true);
+
+        }else{
+            document.getElementById('range1').removeAttribute('hidden');
+            document.getElementById('range2').removeAttribute('hidden');
+            document.getElementById('specific').setAttribute('hidden', true);
+        }
     });
 </script>
 <!-- Popup Statements End-->

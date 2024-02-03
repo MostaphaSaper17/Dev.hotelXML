@@ -1330,13 +1330,18 @@
             $(`input[name="${inputName}"]`).daterangepicker({
               timePicker: false,
               singleDatePicker: true,
-              // autoApply: true,
-              disabledPast: true,
+              autoApply: false,
+              disabledPast: false,
+              autoUpdateInput: false,
+              locale: {
+                cancelLabel: 'Clear'
+                },
+
               dateFormat: "DD/MM/YYYY",
               customClass: "",
               widthSingle: 500,
               onlyShowCurrentMonth: true,
-              minDate: moment(),
+            //   minDate: moment(),
             }, function(start, end, label) {
               var selectedRange = start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD');
                   hiddenInput.val(selectedRange);
@@ -1352,12 +1357,15 @@
                 initializeDateRangePicker1("daterange5");
                 initializeDateRangePicker1("daterange6");
                 initializeDateRangePicker1("daterange7");
-                initializeDateRangePicker1("daterange10");
+                initializeDateRangePicker1("booking_from");
                 initializeDateRangePicker1("daterange11");
                 initializeDateRangePicker1("daterange12");
                 initializeDateRangePicker1("daterange13");
                 initializeDateRangePicker1("daterange14");
                 initializeDateRangePicker1("daterange15");
+                initializeDateRangePicker1("specific");
+                initializeDateRangePicker1("range_from");
+                initializeDateRangePicker1("range_to");
           });
 
 
@@ -1373,9 +1381,9 @@
         event.stopPropagation();
       });
 
-      $(".sidebar-filter").on("click", function (event) {
-        event.stopPropagation();
-      });
+    //   $(".sidebar-filter").on("click", function (event) {
+    //     event.stopPropagation();
+    //   });
 
       var itemWidthOffers = ($("#offers").width() - 20 * 3) / 4;
       $("#offers").flexslider({

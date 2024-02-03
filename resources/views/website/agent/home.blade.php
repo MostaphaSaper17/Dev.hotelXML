@@ -24,7 +24,7 @@
                                             <label for="exampleCtrl">Check In -Check Out</label>
                                             <!-- Hidden input to store the selected date range -->
                                             <input type="hidden" name="hiddendaterange" id="hiddendaterange">
-                                            <input type="text" class="form-control" name="daterange" value="" />
+                                            <input type="text" id="daterange" class="form-control" name="daterange" value="" />
                                         </div>
                                         <!--<div>
                                             <label for="check_out" style="font-weight: bold">Check Out</label>
@@ -220,20 +220,13 @@
     </script> --}}
     <script>
         $(document).ready(function () {
-            // Function to calculate the difference between check-in and check-out dates
-            function calculateNights() {
-                var checkInDate = moment($('#check_in').val(), 'YYYY-MM-DD');
-                var checkOutDate = moment($('#check_out').val(), 'YYYY-MM-DD');
-
-                var nights = checkOutDate.diff(checkInDate, 'days');
-
-                // Update the "Nights" input
-                $('#nights').val(nights);
-            }
-
-            // Attach an event listener to the "Check In" and "Check Out" date inputs
-            $('#check_in, #check_out').on('change', function () {
-                calculateNights();
+            $('#daterange').on('change', function () {
+                var checkInDate = $('#daterange').val();
+                var dateStrings = checkInDate.split(' - ');
+                var startDate = moment(dateStrings[0], 'DD/MM/YYYY');
+                var endDate = moment(dateStrings[1], 'DD/MM/YYYY');
+                var daysDifference = endDate.diff(startDate, 'days') +1;
+                $('#nights').val(daysDifference);
             });
         });
     </script>

@@ -72,8 +72,7 @@
                                     <div class="date-wrapper clearfix">
                                         <div class="check-in-wrapper">
                                             <label>Booking From Date</label>
-                                            {{-- <div id="booking-from" class="inputg check-in-render">DD/MM/YYYY</div> --}}
-                                            <input type="text" id="daterange10" class="form-control" name="daterange10" value="" />
+                                            <input type="text" id="booking-from" class="form-control" name="booking_from" value="" />
                                         </div>
                                     </div>
                                     <input type="hidden" name="hiddendaterange10" id="hiddendaterange10">
@@ -84,11 +83,9 @@
                                     <div class="date-wrapper clearfix">
                                         <div class="check-in-wrapper">
                                             <label>Booking To Date</label>
-                                            {{-- <div id="booking-to" class="inputg check-out-render">DD/MM/YYYY</div> --}}
+                                            <input type="text" id="booking-to" class="form-control" name="daterange11" value="" />
                                         </div>
                                     </div>
-                                    <input type="hidden" name="hiddendaterange11" id="hiddendaterange11">
-                                    <input type="text" id="daterange11" class="form-control" name="daterange11" value="" />
                                 </div>
                             </div>
                             <div class="col-md-3 border-right">
@@ -98,11 +95,9 @@
                                     <div class="date-wrapper clearfix">
                                         <div class="check-in-wrapper">
                                             <label>Check In</label>
-                                            {{-- <div id="check-in-date" class="inputg check-out-render">DD/MM/YYYY</div> --}}
+                                            <input type="text" id="check-in-date" class="form-control" name="daterange12" value="" />
                                         </div>
                                     </div>
-                                    <input type="hidden" name="hiddendaterange12" id="hiddendaterange12">
-                                        <input type="text" id="daterange12" class="form-control" name="daterange12" value="" />
                                 </div>
                                 <div class="form-group form-date-field form-date-search clearfix  has-icon "
                                     data-format="DD/MM/YYYY">
@@ -110,11 +105,9 @@
                                     <div class="date-wrapper clearfix">
                                         <div class="check-in-wrapper">
                                             <label>Check Out</label>
-                                            {{-- <div id="check-out-date" class="inputg check-out-render">DD/MM/YYYY</div> --}}
+                                            <input type="text" id="check-out-date" class="form-control" name="daterange13" value="" />
                                         </div>
                                     </div>
-                                    <input type="hidden" name="hiddendaterange13" id="hiddendaterange13">
-                                        <input type="text" id="daterange13" class="form-control" name="daterange13" value="" />
                                 </div>
                             </div>
 
@@ -125,11 +118,9 @@
                                     <div class="date-wrapper clearfix">
                                         <div class="check-in-wrapper">
                                             <label>Cancellation Date From</label>
-                                            {{-- <div id="cancellation-date-from" class="inputg check-in-render">DD/MM/YYYY</div> --}}
+                                            <input type="text" id="cancellation-date-from" class="form-control" name="daterange14" value="" />
                                         </div>
                                     </div>
-                                    <input type="hidden" name="hiddendaterange14" id="hiddendaterange14">
-                                        <input type="text" id="daterange14" class="form-control" name="daterange14" value="" />
                                 </div>
                                 <div class="form-group form-date-field form-date-search clearfix  has-icon "
                                     data-format="DD/MM/YYYY">
@@ -137,11 +128,9 @@
                                     <div class="date-wrapper clearfix">
                                         <div class="check-in-wrapper">
                                             <label>Cancellation Date To</label>
-                                            {{-- <div id="cancellation-date-to" class="inputg check-out-render">DD/MM/YYYY</div> --}}
+                                            <input type="text" id="cancellation-date-to" class="form-control" name="daterange15" value="" />
                                         </div>
                                     </div>
-                                    <input type="hidden" name="hiddendaterange15" id="hiddendaterange15">
-                                    <input type="text" id="daterange15" class="form-control" name="daterange15" value="" />
                                 </div>
                             </div>
 
@@ -240,135 +229,6 @@
         <!--container end-->
 
         <!-- Popup Statements-->
-        <div class="modal fade modal-map show-statements-modal-pop-box" id="st-modal-show-statements" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i
-                                class="input-icon field-icon page-small-icon"><img src="{{ asset('website/images/close-icon.svg') }}"
-                                    alt=""></i></button>
-                        <h4 class="modal-title">Download Historical Statement</h4>
-                    </div>
-                    <div class="modal-body">
-
-                        <div class="row">
-                            <div class="col-md-6 border-right">
-                                <div class="form-group form-extra-field dropdown clearfix field-detination">
-                                    <div class="dropdown">
-                                        <label>Agent</label>
-                                        <input type="text" id="" name="" value="" class="inputg" placeholder="Code"
-                                            autocomplete="off">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group form-extra-field dropdown clearfix field-detination">
-                                    <div class="dropdown">
-                                        <label>Type</label>
-                                        <select name="" id="" class="inputg" required="">
-                                            <option value="">Select Type</option>
-                                            <option value="Booking">Booking</option>
-                                            <option value="Transaction">Transaction</option>
-                                        </select>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="col-md-12 mobile-hide-hr"><hr></div>
-                            <div class="clearfix"></div>
-                            <div class="col-md-6 border-right">
-                                <div class="search-form-wrapper mobile-form-gap">
-                                <div class="search-form horizontal-search-area">
-                                        <div class="form-group form-date-field form-date-search clearfix  has-icon " data-format="DD/MM/YYYY">
-                                            <i class="input-icon field-icon"><img src="{{ asset('website/hotel-support/images/calandar-icon.png') }}" alt=""></i>
-                                            <div class="date-wrapper clearfix">
-                                                <div class="check-in-wrapper">
-
-                                                    <label>Specific Date</label>
-                                                    <div class="inputg check-in-render">Place Specific Date</div>
-                                                </div>
-                                            </div>
-                                            <input type="hidden" class="check-in-input" value="01/07/2024" name="start">
-                                            <input type="text" class="check-in-out" value="01/07/2024 10:11 am-02/07/2024 10:11 am" name="date">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6"><h5 class="sp-mar-20">OR</h5></div>
-                            <div class="clearfix"></div>
-                            <div class="col-md-12 mobile-hide-hr"><hr></div>
-                            <div class="clearfix"></div>
-                            <div class="col-md-6 border-right">
-                                <div class="search-form-wrapper mobile-form-gap">
-                                    <div class="search-form horizontal-search-area">
-                                        <div class="form-group form-date-field form-date-search clearfix  has-icon " data-format="DD/MM/YYYY">
-                                            <i class="input-icon field-icon"><img src="{{ asset('website/hotel-support/images/calandar-icon.png') }}" alt=""></i>
-                                            <div class="date-wrapper clearfix">
-                                                <div class="check-in-wrapper">
-
-                                                    <label>Date Range From</label>
-                                                    <div class="inputg check-in-render">Place Date Range From</div>
-                                                </div>
-                                            </div>
-                                            <input type="hidden" class="check-in-input" value="01/07/2024" name="start">
-                                            <input type="text" class="check-in-out" value="01/07/2024 10:11 am-02/07/2024 10:11 am" name="date">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="search-form-wrapper mobile-form-gap">
-                                    <div class="search-form horizontal-search-area">
-                                        <div class="form-group form-date-field form-date-search clearfix  has-icon " data-format="DD/MM/YYYY">
-                                            <i class="input-icon field-icon"><img src="{{ asset('website/hotel-support/images/calandar-icon.png') }}" alt=""></i>
-                                            <div class="date-wrapper clearfix">
-                                                <div class="check-in-wrapper">
-
-                                                    <label>Date Range To</label>
-                                                    <div class="inputg check-in-render">Place Date Range To</div>
-                                                </div>
-                                            </div>
-                                            <input type="hidden" class="check-in-input" value="01/07/2024" name="start">
-                                            <input type="text" class="check-in-out" value="01/07/2024 10:11 am-02/07/2024 10:11 am" name="date">
-                                        </div>
-                                        </div>
-                                        </div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="col-md-12 mobile-hide-hr"><hr></div>
-                            <div class="clearfix"></div>
-
-                            <div class="col-md-4 border-right">
-                                <div class="form-group form-extra-field dropdown clearfix field-detination">
-                                    <div class="dropdown">
-                                        <label>Download Format</label>
-                                        <select name="" id="" class="inputg" required="">
-                                            <option value="PDF">PDF</option>
-                                            <option value="Print">Print</option>
-                                            <option value="Excel">Excel</option>
-                                        </select>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <div class="col-md-4 border-right">
-                                <button class="btn btn-success btn-search full-width-btn mt20" type="submit">Fetch Statement</button>
-                            </div>
-                            <div class="col-md-4">
-                                <button class="btn btn-danger btn-search full-width-btn mt20" type="submit">Cancel</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- Popup Statements End-->
 
         <div class="modal  modal-reply-message fade" id="InfoModal" role="dialog">
@@ -630,6 +490,37 @@
     <script>
         $(document).ready(function () {
 
+            $('#booking-from').attr('placeholder', 'DD/MM/YYYY');
+            $('#booking-to').attr('placeholder', 'DD/MM/YYYY');
+            $('#check-in-date').attr('placeholder', 'DD/MM/YYYY');
+            $('#check-out-date').attr('placeholder', 'DD/MM/YYYY');
+            $('#cancellation-date-from').attr('placeholder', 'DD/MM/YYYY');
+            $('#cancellation-date-to').attr('placeholder', 'DD/MM/YYYY');
+
+            $('#booking-from').on('apply.daterangepicker', function(ev, picker) {
+                $(this).val(picker.startDate.format('DD/MM/YYYY'));
+            });
+
+            $('#booking-to').on('apply.daterangepicker', function(ev, picker) {
+                $(this).val(picker.startDate.format('DD/MM/YYYY'));
+            });
+
+            $('#check-in-date').on('apply.daterangepicker', function(ev, picker) {
+                $(this).val(picker.startDate.format('DD/MM/YYYY'));
+            });
+
+            $('#check-out-date').on('apply.daterangepicker', function(ev, picker) {
+                $(this).val(picker.startDate.format('DD/MM/YYYY'));
+            });
+
+            $('#cancellation-date-from').on('apply.daterangepicker', function(ev, picker) {
+                $(this).val(picker.startDate.format('DD/MM/YYYY'));
+            });
+
+            $('#cancellation-date-to').on('apply.daterangepicker', function(ev, picker) {
+                $(this).val(picker.startDate.format('DD/MM/YYYY'));
+            });
+
             $('#InfoModal').modal({
                 show: false,
                 backdrop: 'static',
@@ -642,12 +533,12 @@
                     guest_name: $('#guest-name').val(),
                     booking_status: $('#booking-status').val(),
                     check_in_status: $('#check-in-status').val(),
-                    booking_from: $('#booking-from').text(),
-                    booking_to: $('#booking-to').text(),
-                    check_in_date: $('#check-in-date').text(),
-                    check_out_date: $('#check-out-date').text(),
-                    cancellation_date_from: $('#cancellation-date-from').text(),
-                    cancellation_date_to: $('#cancellation-date-to').text(),
+                    booking_from: $('#booking-from').val() ? $('#booking-from').val() : 'DD/MM/YYYY',
+                    booking_to: $('#booking-to').val() ? $('#booking-to').val() : 'DD/MM/YYYY',
+                    check_in_date: $('#check-in-date').val() ? $('#check-in-date').val() : 'DD/MM/YYYY',
+                    check_out_date: $('#check-out-date').val() ? $('#check-out-date').val() : 'DD/MM/YYYY',
+                    cancellation_date_from: $('#cancellation-date-from').val() ? $('#cancellation-date-from').val() : 'DD/MM/YYYY',
+                    cancellation_date_to: $('#cancellation-date-to').val() ? $('#cancellation-date-to').val() : 'DD/MM/YYYY',
                 };
 
                 $.ajax({
@@ -783,12 +674,12 @@
                         $('#guest-name').val('');
                         $('#booking-status').val('all');
                         $('#check-in-status').val('all');
-                        $('#booking-from').text('DD/MM/YYYY');
-                        $('#booking-to').text('DD/MM/YYYY');
-                        $('#check-in-date').text('DD/MM/YYYY');
-                        $('#check-out-date').text('DD/MM/YYYY');
-                        $('#cancellation-date-from').text('DD/MM/YYYY');
-                        $('#cancellation-date-to').text('DD/MM/YYYY');
+                        $('#booking-from').val('');
+                        $('#booking-to').val('');
+                        $('#check-in-date').val('');
+                        $('#check-out-date').val('');
+                        $('#cancellation-date-from').val('');
+                        $('#cancellation-date-to').val('');
                         var tbody = $('.filter-table');
                         var bookings = data.books;
                         console.log(typeof bookings);
@@ -1006,16 +897,22 @@
                         if (response.Booking_Status === 'complete') {
                             if (response.Cancellation_Policy === 'non_refundable' || new Date(response.Refund_Date) < new Date()) {
                                 $('.buttons').html(`
-                                    <a href="#" type="button" class="btn" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black';this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black';this.style.borderColor='#CCCCCC'"><i class="fa-solid fa-print m-2"></i>Voucher</a>
-                                    <a href="#" type="button" class="btn" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black';this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black';this.style.borderColor='#CCCCCC'"><i class="fa-solid fa-file-invoice-dollar m-2"></i>Invoice</a>
                                     <button type="button" class="btn close-show-modal support-ticket" data-booking-id="${response.booking_id}" data-toggle="modal" data-target="#SupportBooking" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black';this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black';this.style.borderColor='#CCCCCC'">
                                         <i class="fas fa-headset m-2"></i>Support
+                                    </button>
+                                    <button type="button" class="btn close-show-modal invoice" data-booking-id="${response.booking_id}" data-toggle="modal" data-target="#Invoice" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black';this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black';this.style.borderColor='#CCCCCC'">
+                                        <i class="fa-solid fa-print m-2"></i>Invoice
                                     </button>
                                 `);
                             } else if (new Date(response.Refund_Date) > new Date()) {
                                 $('.buttons').html(`
                                     <a href="#" type="button" class="btn" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black';this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black';this.style.borderColor='#CCCCCC'"><i class="fa-solid fa-print m-2"></i>Voucher</a>
-                                    <a href="#" type="button" class="btn" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black';this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black';this.style.borderColor='#CCCCCC'"><i class="fa-solid fa-file-invoice-dollar m-2"></i>Invoice</a>
+                                    <button type="button" class="btn close-show-modal vouche" data-booking-id="${response.booking_id}" data-toggle="modal" data-target="#Invoice" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black';this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black';this.style.borderColor='#CCCCCC'">
+                                        <i class="fa-solid fa-print m-2"></i>Voucher
+                                    </button>
+                                    <button type="button" class="btn close-show-modal invoice" data-booking-id="${response.booking_id}" data-toggle="modal" data-target="#Invoice" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black';this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black';this.style.borderColor='#CCCCCC'">
+                                        <i class="fa-solid fa-print m-2"></i>Invoice
+                                    </button>
                                     <button type="button" class="btn close-show-modal support-ticket" data-booking-id="${response.booking_id}" data-toggle="modal" data-target="#SupportBooking" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black';this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black';this.style.borderColor='#CCCCCC'">
                                         <i class="fas fa-headset m-2"></i>Support
                                     </button>
@@ -1029,8 +926,9 @@
                                     <button type="button" class="btn close-show-modal" data-booking-id="${response.booking_id}" data-toggle="modal" data-target="#PayBooking" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black'; this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black'; this.style.borderColor='#CCCCCC'">
                                         <i class="fa-solid fa-file-invoice-dollar m-2"></i>Pay
                                     </button>
-                                    <a href="#" type="button" class="btn" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black';this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black';this.style.borderColor='#CCCCCC'"><i class="fa-solid fa-print m-2"></i>Voucher</a>
-                                    <button type="button" class="btn close-show-modal support-ticket" data-booking-id="${response.booking_id}" data-toggle="modal" data-target="#SupportBooking" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black';this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black';this.style.borderColor='#CCCCCC'">
+                                    <button type="button" class="btn close-show-modal voucher" data-booking-id="${response.booking_id}" data-toggle="modal" data-target="#Invoice" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black';this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black';this.style.borderColor='#CCCCCC'">
+                                        <i class="fa-solid fa-print m-2"></i>Voucher
+                                    </button>                                    <button type="button" class="btn close-show-modal support-ticket" data-booking-id="${response.booking_id}" data-toggle="modal" data-target="#SupportBooking" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black';this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black';this.style.borderColor='#CCCCCC'">
                                         <i class="fas fa-headset m-2"></i>Support
                                     </button>
                                     <button type="button" class="btn close-show-modal" data-booking-id="${response.booking_id}" data-toggle="modal" data-target="#cancelBooking" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black'; this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black'; this.style.borderColor='#CCCCCC'">
@@ -1100,9 +998,7 @@
             var bookingId = 0;
             var container = $('#messages-container');
             $(document).on('click','.support-ticket',function() {
-                // Step.1: Get The Booking Reference Number
                 bookingId = $(this).data('booking-id');
-                // Step.2: Check if the booking opened a ticket before
                 $.ajax({
                     url: '/check-booking-support/' + bookingId, // Replace with your actual route
                     method: 'GET',
@@ -1169,6 +1065,38 @@
                         container.append(timeHtml);
                     });
                 }
+            });
+
+            $(document).on('click','.invoice',function() {
+                bookingId = $(this).data('booking-id');
+                $.ajax({
+                    url: '/invoice/' + bookingId, // Replace with your actual route
+                    method: 'GET',
+                    success: function (response) {
+                        var newTab = window.open();
+                        newTab.location.href = response.redirect;
+                    },
+                    error: function (error) {
+
+                    }
+                });
+
+            });
+
+            $(document).on('click','.voucher',function() {
+                bookingId = $(this).data('booking-id');
+                $.ajax({
+                    url: '/voucher/' + bookingId, // Replace with your actual route
+                    method: 'GET',
+                    success: function (response) {
+                        var newTab = window.open();
+                        newTab.location.href = response.redirect;
+                    },
+                    error: function (error) {
+
+                    }
+                });
+
             });
 
             $('#sendReplyBtn').on('click', function () {

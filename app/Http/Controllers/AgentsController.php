@@ -121,8 +121,9 @@ class AgentsController extends Controller
         }
 
         if ($request->booking_from !== 'DD/MM/YYYY' && $request->booking_to !== 'DD/MM/YYYY') {
-            $booking_from = Carbon::createFromFormat('d/m/Y', $request->booking_from);
-            $booking_to = Carbon::createFromFormat('d/m/Y', $request->booking_to);
+
+            $booking_from = Carbon::createFromFormat('d/m/Y', $request->booking_from)->startOfDay();
+            $booking_to = Carbon::createFromFormat('d/m/Y', $request->booking_to)->endOfDay();
 
             if ($booking_from < $booking_to) {
                 $books->whereBetween('created_at', [$booking_from, $booking_to]);
@@ -545,6 +546,17 @@ class AgentsController extends Controller
 
     public function generateReport(Request $request)
     {
+        $specific = Carbon::createFromFormat('d/m/Y', $request->specific);
+        $range_from = Carbon::createFromFormat('d/m/Y', $request->range_from)->startOfDay();
+        $range_to = Carbon::createFromFormat('d/m/Y', $request->range_to)->endOfDay();
+
+        if($request->date_type === "Range"){
+            if($range_to <= $range_from){
+                toastr()->error('Date Range To Must Be Highr Than Date Range From','Error');
+                return redirect()->back();
+            }
+        }
+
         $agent = Auth::guard('agent')->user();
         $transactions =[];
         $head_sentense = '';
@@ -555,58 +567,181 @@ class AgentsController extends Controller
         $type = $request->input('type');
         if($order === 'Booking' || $order === 'Sales'){
             if($type === 'all'){
-                $bookings = ManualBooking::where('company_name', $agent->company_name)
-                ->orderBy('created_at', 'desc')->get();
-                $head_sentense = 'Total Bookings From 1/1/2024 To 11/2/2024';
+                if($request->date_type === "Range"){
+                    $bookings = ManualBooking::where('company_name', $agent->company_name)
+                        ->whereBetween('created_at', [
+                            $range_from,
+                            $range_to,
+                        ])
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+                    $head_sentense = 'Total Bookings From '.$request->range_from.' To '.$request->range_to.'';
+                }else{
+                    $bookings = ManualBooking::where('company_name', $agent->company_name)
+                        ->whereDate('created_at', $specific->toDateString())
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+                    $head_sentense = 'Total Bookings On '.$request->specific.'';
+                }
                 $sentense = 'Total Price: ' . $bookings->sum('total_price') .' '. $agent->currency;
             }
             elseif($type === 'confirm'){
-                $bookings = ManualBooking::where('company_name', $agent->company_name)
-                ->where('booking_status','confirm')
-                ->orderBy('created_at', 'desc')->get();
-                $head_sentense = 'Confirm Bookings From 1/1/2024 To 11/2/2024';
+                if($request->date_type === "Range"){
+                    $bookings = ManualBooking::where('company_name', $agent->company_name)
+                        ->where('booking_status','confirm')
+                        ->whereBetween('created_at', [
+                            $range_from,
+                            $range_to,
+                        ])
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+                    $head_sentense = 'Confirm Bookings From '.$request->range_from.' To '.$request->range_to.'';
+                }else{
+                    $bookings = ManualBooking::where('company_name', $agent->company_name)
+                        ->where('booking_status','confirm')
+                        ->whereDate('created_at', $specific->toDateString())
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+                    $head_sentense = 'Confirm Bookings On '.$request->specific.'';
+                }
                 $sentense = 'Total Price: ' . $bookings->sum('total_price') .' '. $agent->currency;
 
             }
             elseif($type === 'cancel'){
-                $bookings = ManualBooking::where('company_name', $agent->company_name)
-                ->where('booking_status','cancelled')
-                ->orderBy('created_at', 'desc')->get();
-                $head_sentense = 'Cancel Bookings From 1/1/2024 To 11/2/2024';
+                if($request->date_type === "Range"){
+                    $bookings = ManualBooking::where('company_name', $agent->company_name)
+                        ->where('booking_status','cancel')
+                        ->whereBetween('created_at', [
+                            $range_from,
+                            $range_to,
+                        ])
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+                    $head_sentense = 'Cancel Bookings From '.$request->range_from.' To '.$request->range_to.'';
+                }else{
+                    $bookings = ManualBooking::where('company_name', $agent->company_name)
+                        ->where('booking_status','cancel')
+                        ->whereDate('created_at', $specific->toDateString())
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+                    $head_sentense = 'Cancel Bookings On '.$request->specific.'';
+                }
                 $sentense = 'Total Price: ' . $bookings->sum('total_price') .' '. $agent->currency;
             }
             elseif($type === 'complete'){
-                $bookings = ManualBooking::where('company_name', $agent->company_name)
-                ->where('booking_status','complete')
-                ->orderBy('created_at', 'desc')->get();
-                $head_sentense = 'Complete Bookings From 1/1/2024 To 11/2/2024';
+                if($request->date_type === "Range"){
+                    $bookings = ManualBooking::where('company_name', $agent->company_name)
+                        ->where('booking_status','complete')
+                        ->whereBetween('created_at', [
+                            $range_from,
+                            $range_to,
+                        ])
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+                    $head_sentense = 'Complete Bookings From '.$request->range_from.' To '.$request->range_to.'';
+                }else{
+                    $bookings = ManualBooking::where('company_name', $agent->company_name)
+                        ->where('booking_status','complete')
+                        ->whereDate('created_at', $specific->toDateString())
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+                    $head_sentense = 'Complete Bookings On '.$request->specific.'';
+                }
                 $sentense = 'Total Price: ' . $bookings->sum('total_price') .' '. $agent->currency;
             }
         }
 
         if($order === 'Transaction'){
             if($type === 'all'){
-                $transactions = Transaction::where('company_name', $agent->company_name)
-                ->orderBy('created_at', 'desc')->get();
-                $head_sentense = 'All Transaction From 1/1/2024 To 11/2/2024';
+                if($request->date_type === "Range"){
+                    $transactions = Transaction::where('company_name', $agent->company_name)
+                        ->whereBetween('created_at', [
+                            $range_from,
+                            $range_to,
+                        ])
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+                    $head_sentense = 'All Transaction From '.$request->range_from.' To '.$request->range_to.'';
+                }else{
+                    $transactions = Transaction::where('company_name', $agent->company_name)
+                        ->whereDate('created_at', $specific->toDateString())
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+                    $head_sentense = 'Total Transactions On '.$request->specific.'';
+                }
                 $sentense = 'Total Transactions: ' . $transactions->sum('balance') .' '. $agent->currency;
             }
-            elseif($type === 'debit'){
-                $transactions = Transaction::where('company_name', $agent->company_name)
-                ->where('type','Debit')
-                ->orderBy('created_at', 'desc')->get();
-                $head_sentense = 'Debit Transaction From 1/1/2024 To 11/2/2024';
-                $sentense = 'Total Debits: ' . $transactions->sum('balance') .' '. $agent->currency;
-            }
             elseif($type === 'credit'){
-                $transactions = Transaction::where('company_name', $agent->company_name)
-                ->where('type','Credit')
-                ->orderBy('created_at', 'desc')->get();
-                $head_sentense = 'Credit Transaction From 1/1/2024 To 11/2/2024';
-                $sentense = 'Total Credits: ' . $transactions->sum('balance') .' '. $agent->currency;
+                if($request->date_type === "Range"){
+                    $transactions = Transaction::where('company_name', $agent->company_name)
+                        ->where('type','credit')
+                        ->whereBetween('created_at', [
+                            $range_from,
+                            $range_to,
+                        ])
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+                    $head_sentense = 'Credits Transaction From '.$request->range_from.' To '.$request->range_to.'';
+                }else{
+                    $transactions = Transaction::where('company_name', $agent->company_name)
+                        ->where('type','credit')
+                        ->whereDate('created_at', $specific->toDateString())
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+                    $head_sentense = 'Credits Transactions On '.$request->specific.'';
+                }
+                $sentense = 'Total Credits Transactions: ' . $transactions->sum('balance') .' '. $agent->currency;
+            }
+            elseif($type === 'debit'){
+                if($request->date_type === "Range"){
+                    $transactions = Transaction::where('company_name', $agent->company_name)
+                        ->where('type','debit')
+                        ->whereBetween('created_at', [
+                            $range_from,
+                            $range_to,
+                        ])
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+                    $head_sentense = 'Debits Transaction From '.$request->range_from.' To '.$request->range_to.'';
+                }else{
+                    $transactions = Transaction::where('company_name', $agent->company_name)
+                        ->where('type','debit')
+                        ->whereDate('created_at', $specific->toDateString())
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+                    $head_sentense = 'Debits Transactions On '.$request->specific.'';
+                }
+                $sentense = 'Total Debits Transactions: ' . $transactions->sum('balance') .' '. $agent->currency;
             }
         }
         return view('website.agent.report',compact('bookings','agent','transactions','head_sentense','sentense'));
     }
-}
 
+    public function invoice($id)
+    {
+        $booking = ManualBooking::where('booking_reference_id',$id)->first();
+        return response()->json(['booking' => $booking, 'redirect' => route('agent.show-invoice',$id)]);
+    }
+
+    public function show_invoice($id)
+    {
+        $booking = ManualBooking::where('booking_reference_id',$id)->first();
+        return view('website.agent.invoice',compact('booking'));
+    }
+
+    public function voucher($id)
+    {
+        $booking = ManualBooking::where('booking_reference_id',$id)->first();
+        return response()->json(['booking' => $booking, 'redirect' => route('agent.show-voucher',$id)]);
+    }
+
+    public function show_voucher($id)
+    {
+        $agent = Auth::guard('agent')->user();
+        $booking = ManualBooking::where('booking_reference_id',$id)->first();
+        $checkInDate = new DateTime($booking->check_in_date);
+        $checkOutDate = new DateTime($booking->check_out_date);
+        $nights = $checkInDate->diff($checkOutDate)->days;
+        return view('website.agent.voucher',compact('booking','agent','checkInDate','checkOutDate','nights'));
+    }
+}

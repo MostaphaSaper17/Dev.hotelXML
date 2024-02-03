@@ -638,7 +638,7 @@
                                         <h4 class="service-title"><a href="#!">Hyatt Centric Times Square</a></h4>
                                         <p class="service-location">
                                             <a href="#!" class="st-link font-medium" >123 Main Street City, State ZIP</a>
-                                            <a href="#!" class="st-link font-medium"   data-toggle="modal" data-target="#st-modal-show-map" role="button"><i class="fa-solid fa-location-dot"></i> view map</a>
+                                            <a href="#!" class="st-link font-medium"   data-toggle="modal" data-target="#st2" role="button"><i class="fa-solid fa-location-dot"></i> view map</a>
                                         </p>
                                         <!--- facilities-->
                                         <div class="d-flex container-facilities">

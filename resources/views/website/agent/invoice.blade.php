@@ -57,7 +57,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport"
         content="width=device-width, height=device-height, initial-scale=1, maximum-scale=2, minimum-scale=1">
-    <title>:: Cheval Traveller ::</title>
+    <title>Hotels XML</title>
     <!-- bootstrap css -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- font awesome css -->
@@ -85,7 +85,7 @@
                 Paid reservation</div> -->
             <div class="seal d-flex gap-2"
                 style="text-align: center;justify-content: center;flex-flow: column;align-items: center;width: 150px;height: 150px; opacity: 0.3;font-size: 14px;font-weight: 700;border: 4px solid rgb(101, 77, 239);color:rgb(117, 77, 239);margin: 20px 0;position: absolute ;bottom:115;border-radius: 100px;left: 100;padding:10px 20px;">
-               <span>Hotelsxml ltd - corporate</span> <p>accounting</p> </div>
+               <span>{{ Hotelsxml ltd - corporate }}</span> <p>accounting</p> </div>
             <!-- <div class="seal d-flex "
                 style="text-align: center;justify-content: center;align-items: center;width: 200px;height: 200px; opacity: 0.3;font-size: 19px;font-weight: 700;border: 2px solid rgb(101, 77, 239);color:rgb(117, 77, 239);margin: 20px 0;position: absolute ;bottom:190;border-radius: 100px;left: 165;padding:10px 20px;">
                 Hotelsxml ltd - corporate</div> -->
@@ -97,7 +97,7 @@
                 <div class="secondHeader" style="width: 75%;">
 
                     <div style="margin: 0px 0 20px;width: 35%;height: fit-content;">
-                        <img style="width: 100%;height:fit-content; " src="./images/hotel-invoice.png" alt="">
+                        <img style="width: 100%;height:fit-content; " src="{{ asset('website/images/hotel-invoice.png') }}" alt="">
                     </div>
 
 

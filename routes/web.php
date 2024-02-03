@@ -234,3 +234,7 @@ Route::get('bookingStatisticsBoxesFilter', [AgentsController::class,'bookingStat
 Route::get('getCompanyCurrency/{companyName}', [AgentsController::class,'getCompanyCurrency'])->name('agent.getCompanyCurrency');
 Route::get('markReadNotification/{id}', [AgentsController::class,'markReadNotification'])->name('agent.markReadNotification');
 Route::post('report', [AgentsController::class,'generateReport'])->name('agent.generateReport');
+Route::get('invoice/{id}', [AgentsController::class,'invoice'])->name('agent.invoice');
+Route::get('show-invoice/{booking}', [AgentsController::class,'show_invoice'])->name('agent.show-invoice');
+Route::get('voucher/{id}', [AgentsController::class,'voucher'])->name('agent.voucher');
+Route::get('show-voucher/{booking}', [AgentsController::class,'show_voucher'])->name('agent.show-voucher');
