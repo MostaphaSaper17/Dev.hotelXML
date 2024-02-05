@@ -44,7 +44,7 @@
 
 <body style="background-color: #ffffff;;font-size: 12px; font-family: 'Inter', sans-serif;">
     <div style="overflow: auto;">
-        <div style="position: relative; width:964px;background-color:white;margin:0 auto; padding:20 100px;">
+        <div style="position: relative; background-color:white;margin:0 auto; padding:20 20px;">
             <div
                 style="opacity: 0.3;font-size: 19px;font-weight: 700;border: 2px solid rgb(101, 77, 239);color:rgb(117, 77, 239);margin: 20px 0;position: absolute ;top:370;border-radius: 50px;right: 160;transform: rotate(-20deg);padding:10px 20px;">
                 Paid reservation</div>
@@ -54,14 +54,14 @@
             <div style="display: flex;justify-content: space-between;margin: 40 0 10 0;">
                 <div class="secondHeader">
                     <div style="font-weight: 700;">{{ $booking->company_name }}</div>
-                    <div>{{ $booking->city }}, {{ $booking->nationality }} </div>
-                    <div>{{ $booking->hotel_phone }}</div>
+                    <div>{{ $agent->city }}, {{ $agent->country }} </div>
+                    <div>{{ $agent->management_phone }}</div>
                 </div>
                 <div style="width: 40%;">
                     <div class="secondHeader" style="font-weight:700;margin-bottom: 2px;">Reservations ID / {{ $booking->booking_reference_id }}
                     </div>
 
-                    <div class="secondHeader">{{ \Carbon\Carbon::parse($booking->created_at)->format('d/m/Y') }}</div>
+                    <div class="secondHeader">Booked on: {{ \Carbon\Carbon::parse($booking->created_at)->format('d/m/Y') }}</div>
                 </div>
             </div>
 
@@ -75,7 +75,7 @@
                                 <span class="header" style="font-size: 17px;">{{ $booking->hotel_name }}</span>
                             </div>
                             <div>
-                                <span class="secondHeader">{{ $booking->company_name }}</span>
+                                <span class="secondHeader">{{ $booking->hotel_address }}, {{ $booking->city }}, {{ $booking->country }}</span>
                             </div>
                             <div>
                                 <span class="secondHeader">{{ $booking->hotel_phone }}</span>
@@ -136,7 +136,7 @@
                 </div>
             </div>
             <div
-                style="display: flex;gap:30px	;align-items: center;  padding: 20px 0;border-top: 2px solid rgb(129, 205, 237);margin: 50px 0;">
+                style="display: flex;gap:30px; padding: 20px 0;border-top: 2px solid rgb(129, 205, 237);margin: 50px 0;">
                 <div style="width: 50%;">
                     <div style="font-size: 14;margin: 10px 0;">
                         <strong>Important notices to guests:</strong>

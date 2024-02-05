@@ -409,37 +409,131 @@
     <div class="clearfix"></div>
 
     <div class="blogs">
-        <div class="container">
+        <div class="" style="margin: 0 auto;width: 95%;">
             <div class="row">
                 <div class="col-md-12">
                     <div class="text-center pb-4 wow fadeInUp" data-wow-delay="0.1s">
                         <h6 class="section-title bg-white text-center text-primary px-3">Latest Blogs</h6>
                         <h1 class="mb-5 title-new">Discover Hotel Tips & Our Stories</h1>
                     </div>
-                    <div class="blog-grid-container">
-                        <div class="flexslider blogs-slider">
-                            <ul class="slides">
-                                @foreach ($blogs as $blog)
-                                    <li>
-                                        <div class="projcard projcard-blue">
-                                            <div class="projcard-innerbox">
-                                            <img class="projcard-img" src="{{'/blog/'.$blog->image}}">
-                                            <div class="projcard-textbox">
-                                                <div class="projcard-title">{{ $blog->title }}</div>
-                                                <!--<div class="projcard-subtitle">Explore the Best Hotels</div>-->
-                                                <div class="projcard-bar"></div>
-                                                <div class="projcard-description">{!! $blog->blog !!}</div>
-                                                <div class="projcard-tagbox">
-                                                <a href="#" class="btn ">Show more</a>
+                    <div class="blog-grid-container swiper swiper_blogs py-5">
+                        <div class="swiper-wrapper" >
+                            <div class="swiper-slide">
+                                <div>
+                                    <div class="projcard projcard-blue">
+                                        <div class="projcard-innerbox h-100" style="display: flex;gap:10px;">
+                                            <div class="w-100 h-100">
+                                          <img class="projcard-img w-100 h-100" src="https://picsum.photos/800/600?image=1041" /></div>
+                                          <div class="projcard-textbox w-100 h-100">
+                                            <div class="projcard-title">Hotel Blog 1</div>
+                                            <!--<div class="projcard-subtitle">Explore the Best Hotels</div>-->
+                                            <!-- <div class="projcard-bar"></div> -->
+                                            <div class="projcard-description">Discover top hotels around the world and find the perfect one for your next vacation.</div>
+                                            <div class="projcard-tagbox">
+                                              <a href="#" class="btn ">Show more</a>
 
-                                                </div>
                                             </div>
-                                            </div>
+                                          </div>
                                         </div>
-                                    </li>
-                                @endforeach
-                            </ul>
+                                      </div>
+                                </div>
+
+
+                            </div>
+                            <div class="swiper-slide">
+                                <div>
+                                    <div class="projcard projcard-blue">
+                                        <div class="projcard-innerbox h-100" style="display: flex;gap:10px; ">
+                                            <div class="w-100 h-100">
+                                                <img class="projcard-img w-100 h-100" src="https://picsum.photos/800/600?image=1041" />
+                                            </div>
+                                          <div class="projcard-textbox w-100 h-100">
+                                            <div class="projcard-title">Hotel Blog 1</div>
+                                            <!--<div class="projcard-subtitle">Explore the Best Hotels</div>-->
+                                            <!-- <div class="projcard-bar"></div> -->
+                                            <div class="projcard-description">Discover top hotels around the world and find the perfect one for your next vacation.</div>
+                                            <div class="projcard-tagbox">
+                                              <a href="#" class="btn ">Show more</a>
+
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                </div>
+
+
+                            </div>
+                            <div class="swiper-slide">
+                                <div>
+                                    <div class="projcard projcard-blue">
+                                        <div class="projcard-innerbox h-100" style="display: flex;gap:10px;">
+                                            <div class="w-100 h-100">
+                                          <img class="projcard-img w-100 h-100" src="https://picsum.photos/800/600?image=1041" /></div>
+                                          <div class="projcard-textbox w-100 h-100">
+                                            <div class="projcard-title">Hotel Blog 1</div>
+                                            <!--<div class="projcard-subtitle">Explore the Best Hotels</div>-->
+                                            <!-- <div class="projcard-bar"></div> -->
+                                            <div class="projcard-description">Discover top hotels around the world and find the perfect one for your next vacation.</div>
+                                            <div class="projcard-tagbox">
+                                              <a href="#" class="btn ">Show more</a>
+
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                </div>
+
+
+                            </div>
+                            <div class="swiper-slide">
+                                <div>
+                                    <div class="projcard projcard-blue">
+                                        <div class="projcard-innerbox h-100" style="display: flex;gap:10px; ">
+                                            <div class="w-100 h-100">
+                                                <img class="projcard-img w-100 h-100" src="https://picsum.photos/800/600?image=1041" />
+                                            </div>
+                                          <div class="projcard-textbox w-100 h-100">
+                                            <div class="projcard-title">Hotel Blog 1</div>
+                                            <!--<div class="projcard-subtitle">Explore the Best Hotels</div>-->
+                                            <!-- <div class="projcard-bar"></div> -->
+                                            <div class="projcard-description">Discover top hotels around the world and find the perfect one for your next vacation.</div>
+                                            <div class="projcard-tagbox">
+                                              <a href="#" class="btn ">Show more</a>
+
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                </div>
+
+
+                            </div>
+                            <div class="swiper-slide">
+                                <div>
+                                    <div class="projcard projcard-blue">
+                                        <div class="projcard-innerbox h-100" style="display: flex;gap:10px;">
+                                            <div class="w-100 h-100">
+                                          <img class="projcard-img w-100 h-100" src="https://picsum.photos/800/600?image=1041" /></div>
+                                          <div class="projcard-textbox w-100 h-100">
+                                            <div class="projcard-title">Hotel Blog 1</div>
+                                            <!--<div class="projcard-subtitle">Explore the Best Hotels</div>-->
+                                            <!-- <div class="projcard-bar"></div> -->
+                                            <div class="projcard-description">Discover top hotels around the world and find the perfect one for your next vacation.</div>
+                                            <div class="projcard-tagbox">
+                                              <a href="#" class="btn ">Show more</a>
+
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                </div>
+
+
+                            </div>
+
+
                         </div>
+                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
             </div>
@@ -447,4 +541,35 @@
     </div>
 
     <div class="clearfix"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const swiperBlogs= new Swiper(".swiper_blogs", {
+              slidesPerView: 1,
+              spaceBetween: 8,
+
+              // centeredSlides: true,
+
+              // slideToClickedSlide: true,
+
+              breakpoints: {
+
+                768: {
+
+                  slidesPerView: 2,
+                },
+                1110:{
+
+                  slidesPerView: 3,
+                },
+
+              },
+
+              pagination: {
+                el: ".swiper-pagination",
+                dynamicBullets: true,
+              },
+
+            });
+        });
+        </script>
 @endsection

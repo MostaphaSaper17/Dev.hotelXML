@@ -225,7 +225,7 @@
                 var dateStrings = checkInDate.split(' - ');
                 var startDate = moment(dateStrings[0], 'DD/MM/YYYY');
                 var endDate = moment(dateStrings[1], 'DD/MM/YYYY');
-                var daysDifference = endDate.diff(startDate, 'days') +1;
+                var daysDifference = endDate.diff(startDate, 'days');
                 $('#nights').val(daysDifference);
             });
         });

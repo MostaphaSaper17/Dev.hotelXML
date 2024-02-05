@@ -83,11 +83,9 @@ Route::prefix('agent')->middleware(['auth:agent','agent','ActiveAccount','verifi
     Route::get('hotels', [FrontendAgentController::class,'hotels'])->name('hotels');
     Route::get('hotel-details', [FrontendAgentController::class,'hotel_details'])->name('hotel-details');
     Route::get('booking-info', [FrontendAgentController::class,'booking_info'])->name('booking-info');
-    Route::get('legal-notice', [FrontendAgentController::class,'legal_notice'])->name('legal-notice');
-    Route::get('privacy-policy', [FrontendAgentController::class,'privacy_policy'])->name('privacy-policy');
-    Route::get('terms-conditions', [FrontendAgentController::class,'terms_conditions'])->name('terms-conditions');
     Route::post('register-employee', [FrontendAgentController::class,'register_employee'])->name('register-employee');
     Route::post('support-ticket', [FrontendAgentController::class,'support_ticket'])->name('support-ticket');
+    Route::post('generate-pdf', [AgentsController::class,'generate_pdf'])->name('generate-pdf');
 
 });
 
@@ -238,3 +236,6 @@ Route::get('invoice/{id}', [AgentsController::class,'invoice'])->name('agent.inv
 Route::get('show-invoice/{booking}', [AgentsController::class,'show_invoice'])->name('agent.show-invoice');
 Route::get('voucher/{id}', [AgentsController::class,'voucher'])->name('agent.voucher');
 Route::get('show-voucher/{booking}', [AgentsController::class,'show_voucher'])->name('agent.show-voucher');
+Route::get('legal-notice', [FrontendAgentController::class,'legal_notice'])->name('legal-notice');
+Route::get('privacy-policy', [FrontendAgentController::class,'privacy_policy'])->name('privacy-policy');
+Route::get('terms-conditions', [FrontendAgentController::class,'terms_conditions'])->name('terms-conditions');

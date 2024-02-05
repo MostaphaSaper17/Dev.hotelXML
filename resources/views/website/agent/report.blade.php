@@ -92,6 +92,21 @@
 </head>
 <body>
     <div id="printableArea" style="text-align: center;">
+        <div class="">
+            <div style="float: right">
+                <img style="width: 50%;height:fit-content; " src="{{ asset('website/images/hotel-invoice.png') }}" alt="">
+            </div>
+            <div style="float: left;text-align: left;">
+                <div for="">{{ $agent->company_name }}</div>
+                <div for="">{{ $agent->management_email }}</div>
+                <div for="">{{ $agent->management_phone }}</div>
+                <div for="">{{ $agent->country }}, {{ $agent->city }}</div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
         <h1>{{ $head_sentense }}</h1>
         @if ($bookings)
             <table>
@@ -141,54 +156,5 @@
         </table>
         @endif
     </div>
-
-
-    <div class="buttons-row">
-        <a href="#" class="action-button print-button" onclick="printReport()"><i class="fas fa-print"></i> PRINT</a>
-        <a href="#" class="action-button excel-button" onclick="exportToExcel()"><i class="fas fa-file-excel"></i> EXCEL</a>
-        <a href="#" class="action-button pdf-button" onclick="exportToPDF()"><i class="fas fa-file-pdf"></i> PDF</a>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
-    <script>
-        function printReport() {
-            // Implement print functionality here
-            window.print();
-        }
-
-        function exportToExcel() {
-        // Create a new workbook and set up the worksheet
-            const wb = XLSX.utils.book_new();
-            const ws = XLSX.utils.table_to_sheet(document.getElementById('printableArea'));
-
-            // Add the worksheet to the workbook
-            XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-
-            // Save or open the Excel file
-            XLSX.writeFile(wb, 'report.xlsx');
-        }
-
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <script>
-        function exportToPDF() {
-            // Create a new jsPDF instance
-            const pdf = new jsPDF();
-
-            // Add a header to the PDF
-            pdf.text('Complete Bookings Report', 10, 10);
-
-            // Add a table to the PDF using AutoTable
-            pdf.autoTable({
-                html: '#printableArea table',
-                theme: 'grid', // You can customize the table theme
-                styles: { fontSize: 8, fontStyle: 'normal' }, // Customize styles if needed
-                headStyles: { fillColor: [200, 200, 200] }, // Customize header styles if needed
-            });
-
-            // Save or open the PDF
-            pdf.save('bookings_report.pdf');
-        }
-    </script>
 </body>
 </html>

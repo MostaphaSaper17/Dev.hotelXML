@@ -12,6 +12,7 @@ use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Models\ManualBooking;
 use App\Models\SupportTicket;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 
 class AgentsController extends Controller
@@ -63,7 +64,7 @@ class AgentsController extends Controller
         return response()->json([
             'booking_id' => $booking->booking_reference_id,
             'agent_email' => $agent->person_email,
-            'created_at' => $booking->created_at->format('m/d/Y'),
+            'created_at' => $booking->created_at->format('d/m/Y'),
             'payment_status' => $payment_status,
             'check_in_date' => $booking->check_in_date,
             'check_out_date' => $booking->check_out_date,
@@ -714,7 +715,20 @@ class AgentsController extends Controller
                 $sentense = 'Total Debits Transactions: ' . $transactions->sum('balance') .' '. $agent->currency;
             }
         }
-        return view('website.agent.report',compact('bookings','agent','transactions','head_sentense','sentense'));
+        $data = [
+            'bookings' => $bookings,
+            'agent' => $agent,
+            'transactions' => $transactions,
+            'head_sentense' => $head_sentense,
+            'sentense' => $sentense
+        ];
+        $pdf = Pdf::loadView('website.agent.report',$data)->setOptions(['defaultFont' => 'sans-serif']);
+
+        return $pdf->download(''.$head_sentense.'.pdf');
+    }
+
+    public function generate_pdf(){
+
     }
 
     public function invoice($id)
@@ -725,8 +739,18 @@ class AgentsController extends Controller
 
     public function show_invoice($id)
     {
+        $agent = Auth::guard('agent')->user();
         $booking = ManualBooking::where('booking_reference_id',$id)->first();
-        return view('website.agent.invoice',compact('booking'));
+        $checkInDate = new DateTime($booking->check_in_date);
+        $checkOutDate = new DateTime($booking->check_out_date);
+        $nights = $checkInDate->diff($checkOutDate)->days;
+        $invoice = $booking->booking_reference_id.\Carbon\Carbon::parse($booking->created_at)->format('d/m/y');
+        $charactersToRemove = ["HXM", "/"];
+        $invoiceId = str_replace($charactersToRemove, "", $invoice);
+        $guests = explode("-", $booking->guest_names);
+        $guest_name = $guests[0];
+        return view('website.agent.invoice',compact('guest_name','invoiceId','booking','agent','checkInDate','checkOutDate','nights'));
+
     }
 
     public function voucher($id)

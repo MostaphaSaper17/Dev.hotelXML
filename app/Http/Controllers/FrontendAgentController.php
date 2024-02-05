@@ -76,6 +76,8 @@ class FrontendAgentController extends Controller
             ));
         }
 
+
+
         $currentMonthNumber = Carbon::now()->month;
         $month = '';
         if($currentMonthNumber == 1){
@@ -115,6 +117,11 @@ class FrontendAgentController extends Controller
             $month = 'December';
         }
 
+        $agent_bookings = ManualBooking::where('company_name',Auth::guard('agent')->user()->company_name)->get();
+        $complete_bookings_number = $agent_bookings->where('booking_status','complete')->count();
+        $cancelled_bookings_number = $agent_bookings->where('booking_status','cancelled')->count();
+        $unpaid_bookings_number = $agent_bookings->where('booking_status','confirm')->count();
+
         $agent = Auth::guard('agent')->user();
         $employees = Employee::where('agent_id',$agent->id)->orderBy('created_at', 'desc')->get();
         $transactions = Transaction::where('company_name',$agent->company_name)->orderBy('created_at', 'desc')->get();
@@ -147,6 +154,9 @@ class FrontendAgentController extends Controller
                 'open_tickets',
                 'closed_tickets',
                 'employees',
+                'complete_bookings_number',
+                'cancelled_bookings_number',
+                'unpaid_bookings_number',
             ));
         }
 
@@ -433,6 +443,14 @@ class FrontendAgentController extends Controller
     }
     public function terms_conditions()
     {
+        return view('website.agent.terms-conditions');
+    }
+
+    public function generate_pdf()
+    {
+        $booking = ManualBooking::where('booking_reference_id',$id)->first();
+        $pdf = Pdf::loadView('website.agent.invoice', $booking);
+        return $pdf->download('hhh');
         return view('website.agent.terms-conditions');
     }
 }

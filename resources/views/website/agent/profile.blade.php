@@ -1037,7 +1037,7 @@
             label: "Revenue",
             backgroundColor: ['#ec6334', '#28a745'],
             borderColor: "rgba(2,117,216,1)",
-            data: [10000, 20000],
+            data: [  {{ $Debit }} , {{  $agent->balance }}],
             }],
         },
         options: {
@@ -1056,7 +1056,7 @@
             yAxes: [{
                 ticks: {
                 min: 0,
-                max: 30000,
+                max: 10000,
                 maxTicksLimit: 5
                 },
                 gridLines: {
@@ -1074,9 +1074,9 @@
         var myPieChart = new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: [" Unpaid 30", "Cancelled 70",  "complete 30"],
+            labels: [" Unpaid ", "Cancelled ",  "complete "],
             datasets: [{
-            data: [90, 30, 70],
+            data: [{{ $unpaid_bookings_number }}, {{ $cancelled_bookings_number }}, {{ $complete_bookings_number }}],
             backgroundColor: ['#f7bb07', '#dc3545', '#28a745'],
             }],
         },

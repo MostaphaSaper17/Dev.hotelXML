@@ -322,7 +322,10 @@
                         <label id="" style="font-weight: bold;font-size: 150%" for="">Do You Want To Cancel This Booking ?</label>
                     </div>
                     <div class="modal-body d-flex justify-content-center">
-                        <span class="text-danger">If you choosed Cancel, The Action Cannot Be Rolled Back</span>
+                        <span class="text-danger" style="font-weight: bold">If you choosed Cancel, The Action Cannot Be Rolled Back</span>
+                    </div>
+                    <div class="modal-body d-flex justify-content-center">
+                        <span class="text-danger" style="font-weight: bold">Cancellation Policy: Free Charge</span>
                     </div>
                     <div class="modal-footer cancel-buttons d-flex justify-content-center">
 
@@ -903,11 +906,13 @@
                                     <button type="button" class="btn close-show-modal invoice" data-booking-id="${response.booking_id}" data-toggle="modal" data-target="#Invoice" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black';this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black';this.style.borderColor='#CCCCCC'">
                                         <i class="fa-solid fa-print m-2"></i>Invoice
                                     </button>
+                                    <button type="button" class="btn close-show-modal voucher" data-booking-id="${response.booking_id}" data-toggle="modal" data-target="#Invoice" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black';this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black';this.style.borderColor='#CCCCCC'">
+                                        <i class="fa-solid fa-print m-2"></i>Voucher
+                                    </button>
                                 `);
                             } else if (new Date(response.Refund_Date) > new Date()) {
                                 $('.buttons').html(`
-                                    <a href="#" type="button" class="btn" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black';this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black';this.style.borderColor='#CCCCCC'"><i class="fa-solid fa-print m-2"></i>Voucher</a>
-                                    <button type="button" class="btn close-show-modal vouche" data-booking-id="${response.booking_id}" data-toggle="modal" data-target="#Invoice" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black';this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black';this.style.borderColor='#CCCCCC'">
+                                    <button type="button" class="btn close-show-modal voucher" data-booking-id="${response.booking_id}" data-toggle="modal" data-target="#Invoice" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black';this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black';this.style.borderColor='#CCCCCC'">
                                         <i class="fa-solid fa-print m-2"></i>Voucher
                                     </button>
                                     <button type="button" class="btn close-show-modal invoice" data-booking-id="${response.booking_id}" data-toggle="modal" data-target="#Invoice" style="border-style: solid; border-color: #CCCCCC; color: black; background-color: white; transition: background-color 0.3s, color 0.3s, border-color 0.3s;" onmouseover="this.style.backgroundColor='#CCC'; this.style.color='black';this.style.borderColor='rgb(90,90,90)'" onmouseout="this.style.backgroundColor='white'; this.style.color='black';this.style.borderColor='#CCCCCC'">

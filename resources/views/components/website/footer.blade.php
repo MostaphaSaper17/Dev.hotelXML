@@ -36,7 +36,7 @@
                 <div class="seperate-line"></div>
                 <ul class="menu">
                     <li><a href="#!">Blog</a></li>
-                    <li><a href="#!">Contact Us</a></li>
+                    <li><a href="{{ route('contact') }}">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -44,11 +44,9 @@
                 <h4>LEGAL</h4>
                 <div class="seperate-line"></div>
                 <ul class="menu">
-                    <li><a href="#!">Terms and Conditions</a></li>
-                    <li><a href="#!">Privacy Policy</a></li>
-                    <li><a href="#!">Legal Notice</a></li>
-
-
+                    <li><a href="{{ route('terms-conditions') }}">Terms and Conditions</a></li>
+                    <li><a href="{{ route('privacy-policy') }}">Privacy Policy</a></li>
+                    <li><a href="{{ route('legal-notice') }}">Legal Notice</a></li>
                 </ul>
             </div>
 

@@ -36,9 +36,9 @@
                 <h4>LEGAL</h4>
                 <div class="seperate-line"></div>
                 <ul class="menu">
-                    <li><a href="{{ route('agent.terms-conditions') }}">Terms and Conditions</a></li>
-                    <li><a href="{{ route('agent.privacy-policy') }}">Privacy Policy</a></li>
-                    <li><a href="{{ route('agent.legal-notice') }}">Legal Notice</a></li>
+                    <li><a href="{{ route('terms-conditions') }}">Terms and Conditions</a></li>
+                    <li><a href="{{ route('privacy-policy') }}">Privacy Policy</a></li>
+                    <li><a href="{{ route('legal-notice') }}">Legal Notice</a></li>
 
 
                 </ul>

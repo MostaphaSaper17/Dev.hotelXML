@@ -1,4 +1,4 @@
-@extends('layouts.agent')
+@extends('layouts.website')
 @section('content')
 <div class="clearfix"></div>
 

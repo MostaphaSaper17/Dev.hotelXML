@@ -7916,10 +7916,10 @@
 
     }
     .st-modal-show-map2.modal-map .modal-dialog{
-        margin: 0 !important;
-        width: 100%;
+        margin: 5% auto !important;
+        width: 80%;
         max-width: 190000px !important;
-        height: 100% ;
+        height: 80% ;
         transition: transform .3s ease-out;
         transform: translate(0,0);
     }
@@ -7927,6 +7927,25 @@
     height: 100%;
     }
     .st-modal-show-map2.modal-map .modal-dialog .modal-content{
+    height: 100%;
+    }
+
+    .st1-modal-show-map2 {
+        padding: 0 !important;
+
+    }
+    .st1-modal-show-map2.modal-map .modal-dialog{
+        margin: 5% auto !important;
+        width: 50%;
+        max-width: 190000px !important;
+        height: 70% ;
+        transition: transform .3s ease-out;
+        transform: translate(0,0);
+    }
+    .st1-modal-show-map2.modal-map .modal-dialog .st-map{
+    height: 100%;
+    }
+    .st1-modal-show-map2.modal-map .modal-dialog .modal-content{
     height: 100%;
     }
   .select2-container{
@@ -8947,6 +8966,16 @@
     margin: 0 auto;
   }
   @media screen and (max-width: 1023px) {
+
+    .st1-modal-show-map2.modal-map .modal-dialog{
+        margin: 5% auto !important;
+        width: 90%;
+        max-width: 190000px !important;
+        height: 70% ;
+        transition: transform .3s ease-out;
+        transform: translate(0,0);
+    }
+
     #login-tab {
       display: none;
       position: fixed;
@@ -9628,7 +9657,7 @@
   .blogs .projcard {
     position: relative;
     width: 100%;
-    height: 300px;
+    height: 250px;
     margin-bottom: 40px;
     border-radius: 10px;
     background-color: #fff;
@@ -9641,12 +9670,12 @@
     transition: box-shadow 0.2s ease, transform 0.2s ease;
   }
 
-  .blogs .projcard:hover {
+  /* .blogs .projcard:hover {
     box-shadow: 0 34px 32px -33px rgba(0, 0, 0, .18);
     transform: translate(0px, -3px);
-  }
+  } */
 
-  .blogs .projcard::before {
+  /* .blogs .projcard::before {
     content: "";
     position: absolute;
     top: 0;
@@ -9655,57 +9684,57 @@
     left: 0;
     background-image: linear-gradient(-70deg, #424242, transparent 50%);
     opacity: 0.07;
-  }
+  } */
 
   .blogs .projcard:nth-child(2n)::before {
     background-image: linear-gradient(-250deg, #424242, transparent 50%);
   }
 
-  .blogs .projcard-innerbox {
+  /* .blogs .projcard-innerbox {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-  }
+  } */
 
-  .blogs .projcard-img {
+  /* .blogs .projcard-img {
     position: absolute;
     height: 300px;
     width: 400px;
     top: 0;
     left: 0;
     transition: transform 0.2s ease;
-  }
+  } */
 
   .blogs .projcard:nth-child(2n) .projcard-img {
     left: initial;
     right: 0;
   }
 
-  .blogs .projcard:hover .projcard-img {
+  /* .blogs .projcard:hover .projcard-img {
     transform: scale(1.05) rotate(1deg);
   }
 
   .blogs .projcard:hover .projcard-bar {
     width: 70px;
-  }
+  } */
 
-  .blogs .projcard-textbox {
+  /* .blogs .projcard-textbox {
     position: absolute;
     top: 7%;
     bottom: 7%;
     left: 430px;
     width: calc(100% - 470px);
     font-size: 17px;
-  }
+  } */
 
   .blogs .projcard:nth-child(2n) .projcard-textbox {
     left: initial;
     right: 430px;
   }
 
-  .blogs .projcard-textbox::before,
+  /* .blogs .projcard-textbox::before,
   .blogs .projcard-textbox::after {
     content: "";
     position: absolute;
@@ -9717,7 +9746,7 @@
     height: 140%;
     width: 60px;
     transform: rotate(8deg);
-  }
+  } */
 
   .blogs .projcard:nth-child(2n) .projcard-textbox::before {
     display: none;
@@ -9934,10 +9963,10 @@
     /* Set the desired width for each blog item */
   }
 
-  .blogs .projcard-img {
+  /* .blogs .projcard-img {
 
     width: 55% !important;
-  }
+  } */
 
   .blogs .projcard-textbox {
 
@@ -11520,10 +11549,10 @@
 
   /** new css  30/11/2023*/
 
-  .flexslider .slides img {
+  /* .flexslider .slides img {
 
     max-height: 185px;
-  }
+  } */
 
   .offers .card .card-body .card-title {
     min-height: 48px;
@@ -11849,7 +11878,6 @@
   .offers {
     margin: 50px 0 !important;
   }
-
   .hotel-popUp .modal-dialog{
     width: 90% !important;
     max-width: 7000px !important;
@@ -11868,45 +11896,6 @@
     border-top-left-radius: 0;
 
 
-  }
-  .hotel-popUp .guests .counter-btn {
-    background-color: #FFD700;
-    color: #000;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    cursor: pointer;
-    width: 45px;
-    height: 45px;
-
-  }
-
-  .hotel-popUp .guests .counter-left {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  .hotel-popUp .guests .counter-right {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-
-  .hotel-popUp.guests span {
-
-    width: 100%;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    color: #555;
-    height: 30px;
-  }
-
-  .hotel-popUp .guests span input {
-    border: transparent;
-    background: transparent;
-    height: 100%;
-    padding: 10px;
-    width: 45px;
   }
 
   .booking-filter .tabs {
@@ -11988,16 +11977,51 @@
     padding: 10px;
     width: 45px;
   }
+  .hotel-popUp .guests .counter-btn {
+    background-color: #FFD700;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+
+  }
+
+  .hotel-popUp .guests .counter-left {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .hotel-popUp .guests .counter-right {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .hotel-popUp.guests span {
+
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #555;
+    height: 30px;
+  }
+
+  .hotel-popUp .guests span input {
+    border: transparent;
+    background: transparent;
+    height: 100%;
+    padding: 10px;
+    width: 45px;
+  }
 
   .hero-section .counter-btn:hover {
     background-color: #FA5636;
     color: #fff;
 
   }
-
-    .select2-dropdown {
-        z-index: 999999 !important;
-    }
 
   /* Styling for the select dropdown */
   .hero-section select {
@@ -12036,19 +12060,16 @@
     color: #fff !important;
   }
 
+  .hero-section .guests>div {}
+
   #top-header-menu-area .menu-area {
     float: unset;
   }
 
-  .hero-section .guests span {
-    width: 100%;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    color: #555;
-    height: 30px;
-  }
 
+  .select2-dropdown {
+  z-index: 999999 !important;
+  }
 
 
   .filter-booking {
@@ -12201,12 +12222,12 @@
     display: block;
   }
 
-/* .container-chek {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 2px;
-}
-} */
+  /* .container-chek {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2px;
+
+  } */
 
   .account>.row>.col-md-6>.card {
 
@@ -12280,7 +12301,7 @@
 
   #st-modal-show-statements .modal-dialog {
     max-width: 600px;
-    margin-top: 8%;
+    margin-top: 10%;
   }
 
   #st-modal-show-statements .check-in-out {
@@ -12658,10 +12679,10 @@
       height: auto;
     }
 
-    .blogs .projcard-innerbox {
+    /* .blogs .projcard-innerbox {
       position: unset;
 
-    }
+    } */
 
     .blogs .projcard-textbox {
       position: unset;

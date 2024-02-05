@@ -9,6 +9,27 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
+                        <h4 class="modal-title">Map View Hotels</h4>
+                        <button type="button" class="btn-close close "  data-dismiss="modal" style="padding: 0;margin: 0;display: flex;justify-content: center;align-items: center;">
+                            <span>x</span></button>
+
+
+                    </div>
+                    <div class="modal-body">
+                        <div class="st-map">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3473006.9447390377!2d-9.393883143804752!3d31.78116652402345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b88619651c58d%3A0xd9d39381c42cffc3!2sMorocco!5e0!3m2!1sen!2sin!4v1561371930612!5m2!1sen!2sin"
+                                width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div  class="modal fade modal-map st1-modal-show-map2" style=""  id="st1"  role="dialog1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
                         <h4 class="modal-title">Hotel Name</h4>
                         <button type="button" class="btn-close close "  data-dismiss="modal" style="padding: 0;margin: 0;display: flex;justify-content: center;align-items: center;">
                             <span>x</span></button>
@@ -115,7 +136,7 @@
                             </div>
                             <div class="col-sm-1 pb-3">
                                 <label for="">Nights</label>
-                                <input type="text" class="form-control" id="" placeholder="Nights">
+                                <input type="text" class="form-control" disabled id="nights" placeholder="1">
                             </div>
                             <div class="col-sm-6 pb-3" style="position: relative;">
                                 <label for="">Room & Guests</label>
@@ -164,7 +185,7 @@
                                 <label for="hotel_name">Hotel Name <span>(Optional)</span></label>
                                 <input type="text" class="form-control" id="hotel_name" placeholder="Place Hotel Name">
                             </div>
-                            <div class="col-sm-12 pb-3">
+                            <div class="col-sm-12 pb-3 d-flex justify-content-center">
                                 <button class="btn btn-primary"><i class="fas fa-search"></i> Search Hotel</button>
 
                             </div>
@@ -638,7 +659,7 @@
                                         <h4 class="service-title"><a href="#!">Hyatt Centric Times Square</a></h4>
                                         <p class="service-location">
                                             <a href="#!" class="st-link font-medium" >123 Main Street City, State ZIP</a>
-                                            <a href="#!" class="st-link font-medium"   data-toggle="modal" data-target="#st2" role="button"><i class="fa-solid fa-location-dot"></i> view map</a>
+                                            <a href="#!" class="st-link font-medium"   data-toggle="modal" data-target="#st1" role="button"><i class="fa-solid fa-location-dot"></i> view map</a>
                                         </p>
                                         <!--- facilities-->
                                         <div class="d-flex container-facilities">

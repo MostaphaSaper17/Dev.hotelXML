@@ -19,9 +19,6 @@
               </ul>
 
               <ul class="list-right">
-                  <li>
-                      <a href="#"><i class="fas fa-language"></i> Eng</a>
-                  </li>
                   @if(Auth::guard('agent')->user())<li>
                       <a href="#"><i class="fas fa-dollar-sign"></i> {{ Auth::guard('agent')->user() ? Auth::guard('agent')->user()->currency : '' }}</a>
                   </li>@endif
@@ -54,9 +51,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i
-                        class="input-icon field-icon page-small-icon"><img src="images/close-icon.svg"
+                        class="input-icon field-icon page-small-icon"><img src="{{ asset('website/images/close-icon.svg') }}"
                             alt=""></i></button>
-                <h4 class="modal-title">Download Historical Statement</h4>
+                <h4 class="modal-title">Download Reporting Statements</h4>
             </div>
             <div class="modal-body">
 
@@ -146,7 +143,7 @@
                             <button class="btn btn-success btn-search full-width-btn mt20" type="submit">Fetch Statement</button>
                         </div>
                         <div class="col-md-6">
-                                <button class="btn btn-danger btn-search full-width-btn mt20" type="submit">Cancel</button>
+                                <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-danger btn-search full-width-btn mt20">Cancel</button>
                         </div>
                     </div>
                     </form>

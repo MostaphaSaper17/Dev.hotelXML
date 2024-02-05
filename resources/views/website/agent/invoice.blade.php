@@ -77,15 +77,15 @@
     <link href="css/fotorama.css" rel="stylesheet">
 </head>
 
-<body style="background-color: #000;;font-size: 12px; font-family: 'Inter', sans-serif;">
+<body style="background-color: #ffffff;;font-size: 12px; font-family: 'Inter', sans-serif;">
     <div style="overflow: auto;">
-        <div style="position: relative; width:964px;background-color:white;margin:0 auto; padding:20 100px;">
+        <div style="position: relative; background-color:white;margin:0 auto; padding:20 100px;">
             <!-- <div
                 style="opacity: 0.3;font-size: 19px;font-weight: 700;border: 2px solid rgb(101, 77, 239);color:rgb(117, 77, 239);margin: 20px 0;position: absolute ;bottom:215;border-radius: 100px;left: 190;transform: rotate(-20deg);padding:10px 20px;">
                 Paid reservation</div> -->
             <div class="seal d-flex gap-2"
-                style="text-align: center;justify-content: center;flex-flow: column;align-items: center;width: 150px;height: 150px; opacity: 0.3;font-size: 14px;font-weight: 700;border: 4px solid rgb(101, 77, 239);color:rgb(117, 77, 239);margin: 20px 0;position: absolute ;bottom:115;border-radius: 100px;left: 100;padding:10px 20px;">
-               <span>{{ Hotelsxml ltd - corporate }}</span> <p>accounting</p> </div>
+                style="display: flex; text-align: center;justify-content: center;flex-flow: column;align-items: center;width: 150px;height: 150px; opacity: 0.3;font-size: 14px;font-weight: 700;border: 4px solid rgb(101, 77, 239);color:rgb(117, 77, 239);margin: 20px 0;position: absolute ;bottom:115;border-radius: 100px;left: 100;">
+               <span>Hotelsxml ltd - corporate</span> <p>accounting</p> </div>
             <!-- <div class="seal d-flex "
                 style="text-align: center;justify-content: center;align-items: center;width: 200px;height: 200px; opacity: 0.3;font-size: 19px;font-weight: 700;border: 2px solid rgb(101, 77, 239);color:rgb(117, 77, 239);margin: 20px 0;position: absolute ;bottom:190;border-radius: 100px;left: 165;padding:10px 20px;">
                 Hotelsxml ltd - corporate</div> -->
@@ -97,7 +97,7 @@
                 <div class="secondHeader" style="width: 75%;">
 
                     <div style="margin: 0px 0 20px;width: 35%;height: fit-content;">
-                        <img style="width: 100%;height:fit-content; " src="{{ asset('website/images/hotel-invoice.png') }}" alt="">
+                        <img style="width: 50%;height:fit-content; " src="{{ asset('website/images/hotel-invoice.png') }}" alt="">
                     </div>
 
 
@@ -111,16 +111,16 @@
                         <div class="secondHeader "
                             style="font-weight:700;margin-bottom: 35px;font-size: 30px;color:#595959">INVOICE
                         </div>
-                        <div class="secondHeader" style="font-weight:600;margin-bottom: 2px;">Paid on: Date
+                        <div class="secondHeader" style="font-weight:600;margin-bottom: 2px;">Paid on: {{ \Carbon\Carbon::parse($booking->created_at)->format('d/m/Y') }}
                         </div>
 
-                        <div class="secondHeader" style="font-weight:600;margin-bottom: 2px;">INVOICE #1000ddmmyy</div>
+                        <div class="secondHeader" style="font-weight:600;margin-bottom: 2px;">INVOICE ID: {{ $invoiceId }}</div>
                         <div style="text-align: end;">
-                            <div style="margin-top: 20px;">Company Name </div>
-                            <div>Street Address</div>
-                            <div>City, ST ZIP Code
+                            <div style="margin-top: 20px;">{{ $agent->company_name }} </div>
+                            <div>{{ $agent->address }}</div>
+                            <div>{{ $agent->city }}, {{ $agent->pincode }}
                             </div>
-                            <div>Phone</div>
+                            <div>{{ $agent->management_phone }}</div>
                         </div>
                     </div>
                 </div>
@@ -141,11 +141,10 @@
                     </thead>
                     <tbody style="border: 1px solid black;">
                         <tr>
-                            <td>Hxm1001
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td style="text-align: center;">{{ $booking->booking_reference_id }}</td>
+                            <td style="text-align: center;">{{ \Carbon\Carbon::parse($checkInDate)->format('d/m/Y') }}</td>
+                            <td style="text-align: center;">{{ $nights }}</td>
+                            <td style="text-align: center;">by Balance</td>
                         </tr>
 
                     </tbody>
@@ -159,43 +158,25 @@
                         <th>City </th>
                         <th>Hotel name </th>
                         <th>Room Type</th>
-                        <th>Room price</th>
+                        <th>Total price</th>
                     </thead>
                     <tbody style="border: 1px solid black; text-align: center;">
                         <tr>
-                            <td>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>1000 Usd</td>
+                            <td>{{ $guest_name }}</td>
+                            <td>{{ $booking->city }}</td>
+                            <td>{{ $booking->hotel_name }}</td>
+                            <td>{{ $booking->room_types }}</td>
+                            <td>{{ $booking->total_price }}  {{ $agent->currency }}</td>
                         </tr>
-                        <tr>
-                            <td style="height: 30px;">
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td style="height: 30px;">
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
                         <tr>
                             <td style="border: 0px !important ;" colspan="3">
                             </td>
 
                             <td style="border: 0px !important ;">Subtotal </td>
-                            <td class="text-center " style="font-weight: 600;"> 1000 <br> Usd </td>
+                            <td class="text-center " style="font-weight: 600;"> {{ $booking->total_price }} <br> {{ $agent->currency }} </td>
                         </tr>
                         <tr>
-                            <td style="border: 0px !important ;" colspan="3" </td>
+                            <td style="border: 0px !important ;" colspan="3">-</td>
 
                             <td style="border: 0px !important ;">Discount Amount </td>
                             <td class="text-center"></td>
@@ -205,7 +186,7 @@
                             </td>
 
                             <td style="border: 0px !important ;">Total </td>
-                            <td class="text-center " style="font-weight: 600;"> 1000 <br> Usd </td>
+                            <td class="text-center " style="font-weight: 600;"> {{ $booking->total_price }} <br> {{ $agent->currency }} </td>
                         </tr>
 
                     </tbody>

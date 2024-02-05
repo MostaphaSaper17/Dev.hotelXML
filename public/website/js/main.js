@@ -1332,6 +1332,29 @@
               singleDatePicker: true,
               autoApply: false,
               disabledPast: false,
+            //   autoUpdateInput: false,
+            //   locale: {
+            //     cancelLabel: 'Clear'
+            //     },
+
+              dateFormat: "DD/MM/YYYY",
+              customClass: "",
+              widthSingle: 500,
+              onlyShowCurrentMonth: true,
+            //   minDate: moment(),
+            }, function(start, end, label) {
+              var selectedRange = start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD');
+                  hiddenInput.val(selectedRange);
+
+                });
+              }
+          function initializeDateRangePicker2(inputName) {
+            var hiddenInput = $(`input[name="hidden${inputName}"]`);
+            $(`input[name="${inputName}"]`).daterangepicker({
+              timePicker: false,
+              singleDatePicker: true,
+              autoApply: false,
+              disabledPast: false,
               autoUpdateInput: false,
               locale: {
                 cancelLabel: 'Clear'
@@ -1357,12 +1380,12 @@
                 initializeDateRangePicker1("daterange5");
                 initializeDateRangePicker1("daterange6");
                 initializeDateRangePicker1("daterange7");
-                initializeDateRangePicker1("booking_from");
-                initializeDateRangePicker1("daterange11");
-                initializeDateRangePicker1("daterange12");
-                initializeDateRangePicker1("daterange13");
-                initializeDateRangePicker1("daterange14");
-                initializeDateRangePicker1("daterange15");
+                initializeDateRangePicker2("booking_from");
+                initializeDateRangePicker2("daterange11");
+                initializeDateRangePicker2("daterange12");
+                initializeDateRangePicker2("daterange13");
+                initializeDateRangePicker2("daterange14");
+                initializeDateRangePicker2("daterange15");
                 initializeDateRangePicker1("specific");
                 initializeDateRangePicker1("range_from");
                 initializeDateRangePicker1("range_to");
